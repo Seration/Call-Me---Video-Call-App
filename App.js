@@ -9,17 +9,19 @@ import {
 } from 'react-native';
 import ContactScreen from './src/screens/ContactScreen/index.js';
 import CallingScreen from './src/screens/CallingScreen/index.js';
+import IncomingCallScreen from './src/screens/IncomingCallScreen/index.js';
 
 const App = () => {
 
   return (
-    <SafeAreaView>
+    <>
       <StatusBar barStyle={'dark-content'} />
      
      {/* <ContactScreen/> */}
-      <CallingScreen/>
+      {/* <CallingScreen/> */}
+      <IncomingCallScreen></IncomingCallScreen>
      
-    </SafeAreaView>
+    </>
   );
 };
 
