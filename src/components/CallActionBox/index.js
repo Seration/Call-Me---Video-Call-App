@@ -2,10 +2,13 @@ import React from 'react';
 import {FlatList, StyleSheet, View, Text, Pressable} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import {useNavigation} from '@react-navigation/core';
 
 const CallActionBox = () => {
   const [isCameraOn, setIsCameraOn] = React.useState(true);
   const [isMicOn, setIsMicOn] = React.useState(true);
+
+  const navigation = useNavigation();
 
   const onReverseCamera = () => {};
 
@@ -16,7 +19,9 @@ const CallActionBox = () => {
     setIsMicOn(currentValue => !currentValue);
   };
 
-  const onHangup = () => {};
+  const onHangup = () => {
+    navigation.goBack();
+  };
 
   return (
     <View style={styles.buttonsContainer}>

@@ -1,12 +1,17 @@
 import React from 'react';
 import {FlatList, StyleSheet, View, Text, TextInput} from 'react-native';
 import CallActionBox from '../../components/CallActionBox';
+import {useRoute} from '@react-navigation/core';
 
 const CallingScreen = () => {
+  const route = useRoute();
+
+  const user = route?.params?.user;
+
   return (
     <View style={styles.page}>
       <View style={styles.cameraPreview}>
-        <Text style={styles.name}>Someone</Text>
+        <Text style={styles.name}>{user?.user_display_name}</Text>
         <Text style={styles.phoneNumber}>Ringing +90 552 612 50 23</Text>
       </View>
 
