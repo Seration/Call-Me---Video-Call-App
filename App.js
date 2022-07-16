@@ -10,6 +10,7 @@ import {
 import ContactScreen from './src/screens/ContactScreen/index.js';
 import CallingScreen from './src/screens/CallingScreen/index.js';
 import IncomingCallScreen from './src/screens/IncomingCallScreen/index.js';
+import CallScreen from './src/screens/CallScreen/index.js';
 
 const App = () => {
 
@@ -19,7 +20,7 @@ const App = () => {
      
      {/* <ContactScreen/> */}
       {/* <CallingScreen/> */}
-      <IncomingCallScreen></IncomingCallScreen>
+      <CallScreen></CallScreen>
      
     </>
   );
