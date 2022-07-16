@@ -8,6 +8,7 @@ import {
   Text
 } from 'react-native';
 import ContactScreen from './src/screens/ContactScreen/index.js';
+import CallingScreen from './src/screens/CallingScreen/index.js';
 
 const App = () => {
 
@@ -15,7 +16,8 @@ const App = () => {
     <SafeAreaView>
       <StatusBar barStyle={'dark-content'} />
      
-     <ContactScreen/>
+     {/* <ContactScreen/> */}
+      <CallingScreen/>
      
     </SafeAreaView>
   );
