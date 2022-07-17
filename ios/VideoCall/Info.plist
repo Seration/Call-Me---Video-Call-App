@@ -2,6 +2,7 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -35,6 +36,10 @@
 			</dict>
 		</dict>
 	</dict>
+	 <key>NSCameraUsageDescription</key>
+	<string>Camera is accessed for the first time</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Give permission to use your microphone</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
 	<key>UILaunchStoryboardName</key>

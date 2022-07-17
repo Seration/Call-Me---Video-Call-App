@@ -4,17 +4,20 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {useNavigation} from '@react-navigation/core';
 
-const CallActionBox = () => {
+const CallActionBox = ({onHangupPress}) => {
   const [isCameraOn, setIsCameraOn] = React.useState(true);
   const [isMicOn, setIsMicOn] = React.useState(true);
 
   const navigation = useNavigation();
 
-  const onReverseCamera = () => {};
+  const onReverseCamera = () => {
+    console.warn('onReverseCamera');
+  };
 
   const onToggleCamera = () => {
     setIsCameraOn(currentValue => !currentValue);
   };
+
   const onToggleMicrophone = () => {
     setIsMicOn(currentValue => !currentValue);
   };

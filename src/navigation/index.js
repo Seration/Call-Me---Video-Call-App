@@ -20,7 +20,7 @@ const Navigation = () => {
 
         <Stack.Group screenOptions={{headerShown: false}}>
           <Stack.Screen name="Calling" component={CallingScreen} />
-          <Stack.Screen name="Incomings" component={IncomingCallScreen} />
+          <Stack.Screen name="IncomingCall" component={IncomingCallScreen} />
           <Stack.Screen name="Call" component={CallScreen} />
         </Stack.Group>
       </Stack.Navigator>
