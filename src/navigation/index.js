@@ -15,10 +15,11 @@ const Navigation = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Login" component={LoginScreen} />
-        <Stack.Screen name="Contacts" component={ContactScreen} />
+        
 
         <Stack.Group screenOptions={{headerShown: false}}>
+        <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="Contacts" component={ContactScreen} />
           <Stack.Screen name="Calling" component={CallingScreen} />
           <Stack.Screen name="IncomingCall" component={IncomingCallScreen} />
           <Stack.Screen name="Call" component={CallScreen} />

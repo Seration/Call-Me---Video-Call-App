@@ -56,6 +56,7 @@ const LoginScreen = () => {
 
   return (
     <View style={styles.page}>
+      <Text style={{color:'#fff',fontSize:40, fontWeight:'bold', textAlign:'center', marginBottom:80}}>CALL ME</Text>
       <TextInput
         value={username}
         onChangeText={setUsername}
@@ -70,7 +71,7 @@ const LoginScreen = () => {
         placeholder="Password"></TextInput>
 
       <Pressable style={styles.button} onPress={signIn}>
-        <Text>Sign In</Text>
+        <Text style={styles.buttonText}>Sign In</Text>
       </Pressable>
     </View>
   );
@@ -82,19 +83,27 @@ const styles = StyleSheet.create({
     alignItems: 'stretch',
     flex: 1,
     justifyContent: 'center',
+    backgroundColor: '#7b4e80',
   },
   input: {
     backgroundColor: 'white',
-    padding: 10,
+    padding: 14,
     marginVertical: 10,
-    borderRadius: 5,
+    height: 50,
+    borderRadius:13
   },
   button: {
-    backgroundColor: 'dodgerblue',
+    backgroundColor: '#191a1c',
     padding: 10,
     marginVertical: 10,
-    borderRadius: 5,
+    borderRadius: 13,
     alignItems: 'center',
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 17,
+    fontWeight: '500',
+    letterSpacing:1
   },
 });
 
