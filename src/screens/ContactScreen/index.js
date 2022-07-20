@@ -44,6 +44,7 @@ const ContactScreen = () => {
 
   return (
     <View style={styles.page}>
+      <Text style={{color:'#00ADB5',fontSize:30, marginTop: 50, fontWeight:'bold', marginBottom:10}}>CONTACTS</Text>
       <TextInput
         value={searchTerm}
         onChangeText={setSearchTerm}
@@ -57,7 +58,7 @@ const ContactScreen = () => {
             style={{
               height: 60,
               marginBottom: 10,
-              borderBottomColor: '#513252',
+              borderBottomColor: '#393E46',
               borderBottomWidth: 0.5,
             }}
             onPress={() => callUser(item)}>
@@ -67,7 +68,9 @@ const ContactScreen = () => {
                   width: 50,
                   height: 50,
                   borderRadius: 25,
-                  marginRight: 10,
+                  marginRight: 15,
+                  //borderWidth:2,
+                  //borderColor:'#00ADB5'
                 }}
                 source={{uri: 'https://thiscatdoesnotexist.com/'}}></Image>
               <View>
@@ -87,27 +90,28 @@ const styles = StyleSheet.create({
     padding: 15,
     backgroundColor: 'white',
     flex: 1,
-    backgroundColor: '#7b4e80',
+    backgroundColor: '#222831',
   },
   contactName: {
     fontSize: 16,
     color: '#eee',
     letterSpacing: 1,
     marginBottom: 5,
-    fontFamily: '',
   },
   status: {
     fontSize: 12,
-    color: '#bbb',
+    color: '#EEEEEE',
     letterSpacing: 1,
-    marginBottom: 5,
+    marginTop: 5,
+
   },
   searchInput: {
     backgroundColor: '#f0f0f0',
     padding: 10,
     borderRadius: 5,
     marginBottom: 25,
-    marginTop: 50,
+    color:'#222831'
+    
   },
 });
 

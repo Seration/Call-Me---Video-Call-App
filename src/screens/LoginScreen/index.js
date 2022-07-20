@@ -34,7 +34,8 @@ const LoginScreen = () => {
   const signIn = async () => {
     try {
       const fqUsername = `${username}@${APP_NAME}.${ACC_NAME}.voximplant.com`;
-      await voximplant.login(fqUsername, password);
+      const login = await voximplant.login(fqUsername, password);
+    alert(login);
 
       redirectHome();
     } catch (e) {
@@ -56,7 +57,16 @@ const LoginScreen = () => {
 
   return (
     <View style={styles.page}>
-      <Text style={{color:'#fff',fontSize:40, fontWeight:'bold', textAlign:'center', marginBottom:80}}>CALL ME</Text>
+      <Text
+        style={{
+          color: '#00ADB5',
+          fontSize: 40,
+          fontWeight: 'bold',
+          textAlign: 'center',
+          marginBottom: 80,
+        }}>
+        CALL ME
+      </Text>
       <TextInput
         value={username}
         onChangeText={setUsername}
@@ -83,14 +93,14 @@ const styles = StyleSheet.create({
     alignItems: 'stretch',
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: '#7b4e80',
+    backgroundColor: '#222831',
   },
   input: {
     backgroundColor: 'white',
     padding: 14,
     marginVertical: 10,
     height: 50,
-    borderRadius:13
+    borderRadius: 13,
   },
   button: {
     backgroundColor: '#191a1c',
@@ -103,7 +113,7 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 17,
     fontWeight: '500',
-    letterSpacing:1
+    letterSpacing: 1,
   },
 });
 

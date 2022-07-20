@@ -1,6 +1,6 @@
 import React, {useEffect, useState, useRef} from 'react';
 import {
-  FlatList,
+  Pressable,
   StyleSheet,
   View,
   Text,
@@ -12,7 +12,8 @@ import CallActionBox from '../../components/CallActionBox';
 import {useNavigation, useRoute} from '@react-navigation/core';
 import {Voximplant} from 'react-native-voximplant';
 import Navigation from '../../navigation';
-
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 const permissions = [
   PermissionsAndroid.PERMISSIONS.RECORD_AUDIO,
   PermissionsAndroid.PERMISSIONS.CAMERA,
@@ -23,6 +24,8 @@ const CallingScreen = () => {
   const [callStatus, setCallStatus] = useState('Initializing...');
   const [localVideoStreamId, setLocalVideoStreamId] = useState('');
   const [remoteVideoStreamId, setRemoteVideoStreamId] = useState('');
+  const [isCameraOn, setIsCameraOn] = React.useState(false);
+  const [isMicOn, setIsMicOn] = React.useState(false);
 
   const navigation = useNavigation();
   const route = useRoute();
@@ -139,9 +142,22 @@ const CallingScreen = () => {
     call.current.hangup();
   };
 
+  const onMutePress = () => {
+    setIsMicOn(currentValue => !currentValue);
+    call.current.sendAudio(isMicOn);
+  };
+
+  const onCameraPress = () => {
+   setIsCameraOn(currentValue => !currentValue);
+    call.current.sendVideo(isCameraOn);
+  };
+
+  const onReverseCamera = () => {
+    console.warn('onReverseCamera');
+  };
+
   return (
     <View style={styles.page}>
-      
       <Voximplant.VideoView
         videoStreamId={remoteVideoStreamId}
         style={styles.remoteVideo}
@@ -157,7 +173,33 @@ const CallingScreen = () => {
         <Text style={styles.phoneNumber}>{callStatus}</Text>
       </View>
 
-      <CallActionBox onHangupPress={onHangupPress} />
+      <View style={styles.buttonsContainer}>
+        <Pressable onPress={onReverseCamera} style={styles.iconButton}>
+          <Ionicons name="ios-camera-reverse" size={30} color={'white'} />
+        </Pressable>
+
+        <Pressable onPress={onCameraPress} style={styles.iconButton}>
+          <MaterialIcons
+            name={isCameraOn ? 'camera-off' : 'camera'}
+            size={30}
+            color={'white'}
+          />
+        </Pressable>
+
+        <Pressable onPress={onMutePress} style={styles.iconButton}>
+          <MaterialIcons
+            name={isMicOn ? 'microphone-off' : 'microphone'}
+            size={30}
+            color={'white'}
+          />
+        </Pressable>
+
+        <Pressable
+          onPress={onHangupPress}
+          style={[styles.iconButton, {backgroundColor: 'red'}]}>
+          <MaterialIcons name="phone-hangup" size={30} color={'white'} />
+        </Pressable>
+      </View>
     </View>
   );
 };
@@ -165,7 +207,7 @@ const CallingScreen = () => {
 const styles = StyleSheet.create({
   page: {
     height: '100%',
-    backgroundColor: '#7b4e80',
+    backgroundColor: '#222831',
   },
   cameraPreview: {
     flex: 1,
@@ -176,22 +218,22 @@ const styles = StyleSheet.create({
   localVideo: {
     width: 100,
     height: 150,
-    backgroundColor: '#ffff6e',
-
+    backgroundColor: '#222831',
     borderRadius: 10,
-
     position: 'absolute',
     right: 10,
     top: 100,
   },
   remoteVideo: {
-    backgroundColor: '#7b4e80',
+    backgroundColor: '#222831',
     borderRadius: 10,
     position: 'absolute',
     left: 0,
     right: 0,
     top: 0,
     bottom: 100,
+    width: '100%',
+    height: '100%',
   },
   name: {
     fontSize: 30,
@@ -209,6 +251,22 @@ const styles = StyleSheet.create({
     top: 50,
     left: 10,
     zIndex: 10,
+  },
+  buttonsContainer: {
+    backgroundColor: '#EEE',
+    padding: 20,
+    paddingBottom: 40,
+    borderTopLeftRadius: 15,
+    borderTopRightRadius: 15,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 'auto',
+    opacity: 0.6,
+  },
+  iconButton: {
+    backgroundColor: '#4a4a4a',
+    padding: 15,
+    borderRadius: 50,
   },
 });
 export default CallingScreen;

@@ -4,7 +4,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {useNavigation} from '@react-navigation/core';
 
-const CallActionBox = ({onHangupPress}) => {
+const CallActionBox = ({onHangupPress, onToggleMicrophonePress, onToggleCameraPress}) => {
   const [isCameraOn, setIsCameraOn] = React.useState(true);
   const [isMicOn, setIsMicOn] = React.useState(true);
 
@@ -15,15 +15,19 @@ const CallActionBox = ({onHangupPress}) => {
   };
 
   const onToggleCamera = () => {
-    setIsCameraOn(currentValue => !currentValue);
+    setIsCameraOn(currentValue => !currentValue); 
+    onToggleCameraPress;
+    ;
   };
 
   const onToggleMicrophone = () => {
     setIsMicOn(currentValue => !currentValue);
+    onToggleMicrophonePress;
   };
 
   const onHangup = () => {
-    navigation.goBack();
+    onToggleMicrophonePress;
+    navigation.navigate("Contact");
   };
 
   return (
